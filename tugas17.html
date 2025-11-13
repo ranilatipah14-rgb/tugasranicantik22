@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - Toko Game Lucu</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --pink-muda: #FFB6C1; /* Light Pink */
+            --biru-muda: #ADD8E6; /* Light Blue */
+            --white: #FFFFFF;
+            --gray: #F8F9FA;
+        }
+        body {
+            background: linear-gradient(to bottom, var(--pink-muda), var(--biru-muda));
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Font lucu */
+            color: #333;
+        }
+        .navbar {
+            background-color: var(--pink-muda) !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--biru-muda) !important;
+        }
+        .nav-link {
+            color: #FFF !important;
+        }
+        .nav-link:hover {
+            color: var(--biru-muda) !important;
+        }
+        .hero {
+            background: var(--biru-muda);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            color: var(--pink-muda);
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+        .hero p {
+            color: #FFF;
+            font-size: 1.5rem;
+        }
+        /* Animasi lucu */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(5deg); }
+            20% { transform: rotate(-5deg); }
+            30% { transform: rotate(5deg); }
+            40% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .cute-anim {
+            position: absolute;
+            animation: wiggle 3s infinite;
+        }
+        .cute-anim1 {
+            top: 20px;
+            left: 10%;
+            font-size: 3rem;
+        }
+        .cute-anim2 {
+            bottom: 30px;
+            right: 15%;
+            font-size: 4rem;
+            animation-delay: 1s;
+        }
+        .cute-anim3 {
+            top: 50%;
+            left: 5%;
+            font-size: 2.5rem;
+            animation-delay: 0.5s;
+        }
+        .card {
+            background-color: var(--white);
+            border: 2px solid var(--pink-muda);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            color: var(--biru-muda);
+        }
+        .btn-primary {
+            background-color: var(--pink-muda);
+            border-color: var(--pink-muda);
+            color: #FFF;
+        }
+        .btn-primary:hover {
+            background-color: var(--biru-muda);
+            border-color: var(--biru-muda);
+        }
+        .section-title {
+            color: var(--pink-muda);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+        footer {
+            background-color: var(--biru-muda);
+            color: #FFF;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* Animasi gemas tambahan */
+        .star-anim {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-20px); opacity: 0.5; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .star1 { top: 100px; left: 20%; animation-delay: 0s; }
+        .star2 { bottom: 150px; right: 25%; animation-delay: 1s; }
+        .star3 { top: 200px; left: 80%; animation-delay: 2s; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">GameStore Lucu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#top-games">Top Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container position-relative">
+            <h1>Selamat Datang di GameStore!</h1>
+            <p>Temukan game-game lucu dan seru seperti di PlayStore, tapi lebih imut!</p>
+            <a href="#featured" class="btn btn-primary btn-lg">Mulai Jelajahi</a>
+            <!-- Animasi lucu -->
+            <span class="cute-anim cute-anim1">😺</span>
+            <span class="cute-anim cute-anim2">🐶</span>
+            <span class="cute-anim cute-anim3">🦄</span>
+            <!-- Animasi bintang gemas -->
+            <span class="star-anim star1">✨</span>
+            <span class="star-anim star2">🌟</span>
+            <span class="star-anim star3">💫</span>
+        </div>
+    </section>
+
+    <!-- Featured Games Section -->
+    <section id="featured" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Featured Games</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="epep.jpg" class="card-img-top" alt="Game 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Free Fire</h5>
+                            <p class="card-text">Permainan mabar asik bareng teman teman kamu!</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="amongus.jpg" class="card-img-top" alt="Game 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Among Us</h5>
+                            <p class="card-text">Temukan impostor di antara kita!</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="pokemon.jpg" class="card-img-top" alt="Game 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Pokémon GO</h5>
+                            <p class="card-text">Tangkap Pokémon di dunia nyata!</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Categories</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Action</h5>
+                            <p>Game penuh aksi dan petualangan!</p>
+                            <a href="#" class="btn btn-primary">Lihat</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Puzzle</h5>
+                            <p>Asah otak dengan teka-teki lucu!</p>
+                            <a href="#" class="btn btn-primary">Lihat</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Adventure</h5>
+                            <p>Jelajahi dunia imajinasi!</p>
+                            <a href="#" class="btn btn-primary">Lihat</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Simulation</h5>
+                            <p>Simulasi kehidupan yang gemas!</p>
+                            <a href="#" class="btn btn-primary">Lihat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Games Section -->
+    <section id="top-games" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Top Games</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="ml.jpg" class="card-img-top" alt="Top Game 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Mobile Lengens</h5>
+                            <p class="card-text">Petualangan open-world epik!</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="minicraf.jpg" class="card-img-top" alt="Top Game 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Minecraft</h5>
+                            <p class="card-text">Bangun dunia impianmu!</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="roblok.jpg" class="card-img-top" alt="Top Game 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Roblok</h5>
+                            <p class="card-text">Game mabar seru!</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Pesan</label>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 GameStore Lucu. All ranni reserved.</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+```
